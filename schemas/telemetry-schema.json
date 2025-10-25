@@ -1,0 +1,158 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Voidly Telemetry Schema",
+  "description": "Anonymous telemetry data collected by Voidly for AI training",
+  "version": "2.0",
+  "type": "object",
+  "properties": {
+    "connection_event": {
+      "description": "Anonymous connection attempt data",
+      "type": "object",
+      "required": ["timestamp", "from_region", "to_node", "success"],
+      "properties": {
+        "timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "UTC timestamp of connection attempt"
+        },
+        "from_region": {
+          "type": "string",
+          "description": "User's approximate region (continent + general area)",
+          "examples": ["US-EAST", "EU-WEST", "CN-EAST", "IN-SOUTH"],
+          "pattern": "^[A-Z]{2}-[A-Z]+$"
+        },
+        "to_node": {
+          "type": "string",
+          "description": "Target VPN node identifier",
+          "examples": ["eu-west-1", "us-east-1", "ap-south-1"]
+        },
+        "latency_ms": {
+          "type": "number",
+          "description": "Round-trip latency in milliseconds (null if connection failed)",
+          "minimum": 0
+        },
+        "success": {
+          "type": "boolean",
+          "description": "Whether the connection was successful"
+        },
+        "censorship_score": {
+          "type": "number",
+          "description": "Estimated censorship risk for this region (0-1 scale)",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "time_to_connect_ms": {
+          "type": "number",
+          "description": "Time to establish WireGuard tunnel (null if failed)",
+          "minimum": 0
+        },
+        "packet_loss_pct": {
+          "type": "number",
+          "description": "Packet loss percentage during connection (null if failed)",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "selected_by": {
+          "type": "string",
+          "description": "How the node was selected",
+          "enum": ["ai_model_v2", "user_manual", "fallback", "ai_model_v1"]
+        },
+        "failure_reason": {
+          "type": "string",
+          "description": "Reason for failure (only present if success=false)",
+          "enum": ["connection_timeout", "connection_refused", "handshake_failed", "censorship_detected", "unknown"]
+        }
+      }
+    },
+    "node_health": {
+      "description": "Server-side node health metrics",
+      "type": "object",
+      "required": ["node_id", "timestamp", "active_connections"],
+      "properties": {
+        "node_id": {
+          "type": "string",
+          "description": "VPN node identifier",
+          "examples": ["eu-west-1", "us-east-1"]
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "UTC timestamp of health check"
+        },
+        "active_connections": {
+          "type": "integer",
+          "description": "Number of active VPN connections",
+          "minimum": 0
+        },
+        "cpu_usage_pct": {
+          "type": "number",
+          "description": "CPU usage percentage",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "memory_usage_pct": {
+          "type": "number",
+          "description": "Memory usage percentage",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "bandwidth_used_mbps": {
+          "type": "number",
+          "description": "Current bandwidth usage in Mbps",
+          "minimum": 0
+        },
+        "uptime_seconds": {
+          "type": "integer",
+          "description": "Node uptime in seconds",
+          "minimum": 0
+        }
+      }
+    },
+    "censorship_event": {
+      "description": "Detected censorship or blocking event",
+      "type": "object",
+      "required": ["timestamp", "from_region", "blocked_node"],
+      "properties": {
+        "timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "UTC timestamp of censorship detection"
+        },
+        "from_region": {
+          "type": "string",
+          "description": "User's approximate region",
+          "pattern": "^[A-Z]{2}-[A-Z]+$"
+        },
+        "blocked_node": {
+          "type": "string",
+          "description": "Node that was blocked"
+        },
+        "block_type": {
+          "type": "string",
+          "description": "Type of block detected",
+          "enum": ["connection_timeout", "connection_refused", "dpi_detected", "dns_hijack", "unknown"]
+        },
+        "retry_success": {
+          "type": "boolean",
+          "description": "Whether retry to different node succeeded"
+        },
+        "fallback_node": {
+          "type": "string",
+          "description": "Node used for successful fallback (if any)"
+        }
+      }
+    }
+  },
+  "privacy_notes": {
+    "no_ip_addresses": "Real IP addresses are NEVER stored in telemetry",
+    "anonymized_location": "Location is anonymized to region level (e.g., US-EAST, not city)",
+    "no_user_identifiers": "No user IDs, session IDs, or tracking cookies",
+    "no_browsing_data": "No DNS queries, URLs, or browsing history",
+    "aggregated_only": "Data is aggregated before long-term storage"
+  },
+  "data_retention": {
+    "connection_events": "90 days, then aggregated and further anonymized",
+    "node_health": "30 days rolling window",
+    "censorship_events": "180 days for long-term pattern analysis"
+  }
+}
