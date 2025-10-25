@@ -1,0 +1,114 @@
+[
+  {
+    "timestamp": "2025-01-15T10:30:23Z",
+    "from_region": "US-EAST",
+    "to_node": "eu-west-1",
+    "latency_ms": 47,
+    "success": true,
+    "censorship_score": 0.02,
+    "time_to_connect_ms": 1243,
+    "packet_loss_pct": 0.0,
+    "selected_by": "ai_model_v2"
+  },
+  {
+    "timestamp": "2025-01-15T10:31:45Z",
+    "from_region": "CN-EAST",
+    "to_node": "eu-west-1",
+    "latency_ms": 189,
+    "success": true,
+    "censorship_score": 0.89,
+    "time_to_connect_ms": 3456,
+    "packet_loss_pct": 2.1,
+    "selected_by": "ai_model_v2"
+  },
+  {
+    "timestamp": "2025-01-15T10:32:12Z",
+    "from_region": "CN-EAST",
+    "to_node": "ap-northeast-1",
+    "latency_ms": 45,
+    "success": false,
+    "censorship_score": 0.89,
+    "time_to_connect_ms": null,
+    "packet_loss_pct": null,
+    "selected_by": "user_manual",
+    "failure_reason": "connection_timeout"
+  },
+  {
+    "timestamp": "2025-01-15T10:33:01Z",
+    "from_region": "EU-WEST",
+    "to_node": "us-east-1",
+    "latency_ms": 92,
+    "success": true,
+    "censorship_score": 0.05,
+    "time_to_connect_ms": 987,
+    "packet_loss_pct": 0.1,
+    "selected_by": "ai_model_v2"
+  },
+  {
+    "timestamp": "2025-01-15T10:34:23Z",
+    "from_region": "IN-SOUTH",
+    "to_node": "ap-south-1",
+    "latency_ms": 12,
+    "success": true,
+    "censorship_score": 0.15,
+    "time_to_connect_ms": 567,
+    "packet_loss_pct": 0.3,
+    "selected_by": "ai_model_v2"
+  },
+  {
+    "timestamp": "2025-01-15T10:35:45Z",
+    "from_region": "IR-CENTRAL",
+    "to_node": "eu-west-2",
+    "latency_ms": 156,
+    "success": true,
+    "censorship_score": 0.92,
+    "time_to_connect_ms": 4123,
+    "packet_loss_pct": 3.4,
+    "selected_by": "ai_model_v2"
+  },
+  {
+    "timestamp": "2025-01-15T10:36:12Z",
+    "from_region": "RU-WEST",
+    "to_node": "eu-west-1",
+    "latency_ms": 34,
+    "success": false,
+    "censorship_score": 0.78,
+    "time_to_connect_ms": null,
+    "packet_loss_pct": null,
+    "selected_by": "ai_model_v2",
+    "failure_reason": "connection_refused"
+  },
+  {
+    "timestamp": "2025-01-15T10:37:34Z",
+    "from_region": "BR-SOUTH",
+    "to_node": "sa-east-1",
+    "latency_ms": 23,
+    "success": true,
+    "censorship_score": 0.08,
+    "time_to_connect_ms": 876,
+    "packet_loss_pct": 0.2,
+    "selected_by": "ai_model_v2"
+  },
+  {
+    "timestamp": "2025-01-15T10:38:56Z",
+    "from_region": "AU-EAST",
+    "to_node": "ap-southeast-2",
+    "latency_ms": 8,
+    "success": true,
+    "censorship_score": 0.01,
+    "time_to_connect_ms": 432,
+    "packet_loss_pct": 0.0,
+    "selected_by": "ai_model_v2"
+  },
+  {
+    "timestamp": "2025-01-15T10:39:12Z",
+    "from_region": "TR-WEST",
+    "to_node": "eu-west-3",
+    "latency_ms": 67,
+    "success": true,
+    "censorship_score": 0.65,
+    "time_to_connect_ms": 2345,
+    "packet_loss_pct": 1.2,
+    "selected_by": "ai_model_v2"
+  }
+]

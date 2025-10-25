@@ -1,0 +1,41 @@
+# This is the PUBLIC GitHub repo
+# Do not commit any private/sensitive data here
+
+# Model files (trained weights are private)
+*.pkl
+*.h5
+*.pt
+*.pth
+*.onnx
+
+# Private keys or credentials
+*.key
+*.pem
+*.env
+.env.local
+secrets/
+credentials/
+
+# Database dumps
+*.sql
+*.db
+*.sqlite
+
+# Logs with potentially sensitive data
+*.log
+logs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temp
+tmp/
+temp/
+*.tmp
