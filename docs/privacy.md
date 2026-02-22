@@ -1,23 +1,53 @@
-# Privacy & Data Collection Policy
+# Data Privacy Policy
 
-> Radical transparency about what we collect and why
-
----
-
-## Core Principles
-
-1. **Privacy is a human right** - We build with privacy-first design
-2. **Radical transparency** - We tell you exactly what we collect
-3. **Data minimization** - We only collect what's needed for AI training
-4. **No monetization** - Your data will NEVER be sold or monetized
-5. **Open source** - Our approach is auditable by anyone
-
----
+How Voidly handles censorship measurement data.
 
 ## What We Collect
 
-### ✅ Anonymous Connection Metrics
+Voidly aggregates **network measurement data** from public sources. We do not collect personal information.
 
-**Purpose:** Train the AI routing model
+### From Public Sources
 
-**Data collected:**
+| Source | Data Type | PII Risk |
+|--------|-----------|----------|
+| OONI | Network test results (DNS, HTTP, TLS) | None — OONI publishes anonymized data |
+| CensoredPlanet | DNS/HTTP blocking signals | None — automated remote measurements |
+| IODA | BGP/Active Probing/Darknet signals | None — infrastructure-level data |
+
+### From Voidly Probes
+
+Community probe nodes submit:
+- Domain accessibility results (reachable/blocked/timeout)
+- Latency measurements
+- Blocking method indicators (DNS, TCP, TLS)
+- Country code (from node registration)
+
+Probes do **not** submit: IP addresses, user identities, browsing history, or device information.
+
+## What We Publish
+
+All published data is **aggregated and anonymized**:
+
+- Country-level censorship scores (not individual measurements)
+- Incident reports with evidence links (to public OONI/IODA reports)
+- Domain blocking status by country (not by individual network)
+- ISP-level analysis (by ASN, not individual users)
+
+## Data Licensing
+
+All Voidly censorship data is published under **[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)**:
+
+- Free to use, share, and adapt
+- Attribution required: "Data from Voidly Global Censorship Index (voidly.ai)"
+- No additional restrictions
+
+## Data Retention
+
+- Live measurements: retained indefinitely (aggregated)
+- Incident reports: permanent (archival value)
+- Probe results: retained for 90 days, then aggregated
+- API request logs: 30 days (standard operational logging)
+
+## Contact
+
+For privacy questions: [research@voidly.ai](mailto:research@voidly.ai)
