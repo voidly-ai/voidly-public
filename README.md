@@ -180,10 +180,10 @@ npm install @voidly/agent-sdk
      ▼            ▼
 ┌─────────┐  ┌──────────────┐  ┌───────────────────────┐
 │ ML Model│  │ Probe Network│  │   Data Ingestion      │
-│ (v2)    │  │ (39+ nodes)  │  │                       │
+│ (v3.3)  │  │ (40 nodes)   │  │                       │
 │         │  │ 62 domains   │  │ OONI + CensoredPlanet │
-│ 99.8%   │  │ every 5 min  │  │ + IODA (every 6h)     │
-│ F1 score│  │ 6 continents │  │                       │
+│ 0.87    │  │ every 5 min  │  │ + IODA (every 6h)     │
+│ F1 LOCO │  │ 6 continents │  │                       │
 └─────────┘  └──────────────┘  └───────────────────────┘
 ```
 

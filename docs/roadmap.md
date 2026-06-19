@@ -5,10 +5,10 @@ Current status and planned development for the Voidly censorship research platfo
 ## Current Status (February 2026)
 
 ### Data Coverage
-- 11.7M live OONI measurements across 119 countries
+- 101K+ verified evidence records across 130 countries (2.2B+ upstream)
 - 1.6M historical records (10-year OONI archive)
-- 5,356+ documented censorship incidents with evidence
-- 16,822 evidence items from 4 data sources
+- 2,800+ documented incidents with evidence
+- 101K+ verified evidence records from 4 data sources
 - Ingestion every 30 minutes from OONI, CensoredPlanet, IODA
 
 ### Intelligence Products
